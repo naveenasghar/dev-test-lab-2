@@ -1,0 +1,390 @@
+/* Base & Reset */
+/* navbar code */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: #f8fbfd;
+  color: #222;
+}
+
+body.dark-mode {
+  background-color: #1c1c2c;
+  color: #f5f5f5;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #d0e7f5, #a9cce3);
+  padding: 20px 30px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: #004e75;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: #0077b6;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #005f87;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Search */
+.search-container input {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  font-size: 14px;
+  outline: none;
+}
+
+.search-container {
+  margin: 10px 20px;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  background: #00b4d8;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0096c7;
+}
+
+/* Toggle Dark Mode */
+.toggle-mode {
+  background: white;
+  color: #00b4d8;
+  border: 2px solid #00b4d8;
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-mode:hover {
+  background: #00b4d8;
+  color: white;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .navbar {
+  background: linear-gradient(to right, #2a3b4c, #1f2a38);
+}
+
+body.dark-mode .logo,
+body.dark-mode .nav-links li a {
+  color: #fff;
+}
+
+body.dark-mode .nav-links li a::after {
+  background: #00ffc8;
+}
+
+body.dark-mode .nav-links li a:hover {
+  color: #00ffc8;
+}
+
+body.dark-mode .btn {
+  background: #445566;
+}
+
+body.dark-mode .btn:hover {
+  background: #5c7a8a;
+}
+
+body.dark-mode .toggle-mode {
+  background: #222;
+  color: #00ffc8;
+  border-color: #00ffc8;
+}
+
+body.dark-mode .toggle-mode:hover {
+  background: #00ffc8;
+  color: #000;
+}
+
+body.dark-mode .search-container input {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Hamburger Toggle */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #004e75;
+}
+
+/* Responsive Layout */
+@media (max-width: 960px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+  }
+
+  .nav-links,
+  .auth-buttons,
+  .search-container {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar.active .nav-links,
+  .navbar.active .auth-buttons,
+  .navbar.active .search-container {
+    display: flex;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .auth-buttons {
+    gap: 10px;
+  }
+
+  .search-container input {
+    width: 100%;
+  }
+}
+/* bg image and test code */
+/* Hero Section */
+/* Hero Section */
+.hero {
+  background: url('https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_1280.jpg') no-repeat center center/cover;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  animation: zoomBg 15s ease-in-out infinite alternate;
+}
+
+/* Zoom Background Subtle Animation */
+@keyframes zoomBg {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 105%;
+  }
+}
+
+.hero-overlay {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 50px 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 650px;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+/* Heading */
+.hero h1 {
+  font-size: 36px;
+  color: #004e75;
+  margin-bottom: 25px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero h1 span {
+  color: #00b4d8;
+}
+
+/* Button */
+.hero-btn {
+  background: #00b4d8;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-btn:hover {
+  background: #0096c7;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
+}
+
+/* Fade + Slide Animation Keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    height: 65vh;
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .hero-btn {
+    width: 100%;
+    padding: 10px 0;
+    
+  }
+}
+/* main work */
+/* 👇 Quiz Container Styling 👇 */
+.quiz-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .quiz-container {
+  background: rgba(28, 28, 44, 0.85);
+  color: #fff;
+}
+
+.quiz-container h2 {
+  margin-bottom: 20px;
+  color: #004e75;
+}
+
+body.dark-mode .quiz-container h2 {
+  color: #00ffc8;
+}
+
+.quiz-container select {
+  padding: 10px;
+  font-size: 1rem;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  width: 80%;
+}
+
+.quiz-container button {
+  padding: 10px 20px;
+  margin-top: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: #007BFF;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.quiz-container button:hover {
+  background: #005f87;
+}
+
+.quiz-container .question {
+  margin: 15px 0;
+  font-size: 1.1rem;
+}
+

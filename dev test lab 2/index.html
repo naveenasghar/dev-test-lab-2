@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dev Test Lab</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="light-mode">
+  <nav class="navbar">
+    <div class="logo">&lt;Dev Test Lab/&gt;</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <ul class="nav-links">
+      <li><a href="">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#" id="heroBtnNav">Get Started</a></li>
+    </ul>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search..." />
+    </div>
+
+    <div class="auth-buttons">
+      <button class="btn">Sign Up</button>
+      <button class="btn">Login</button>
+      <button class="toggle-mode" onclick="toggleMode()">🌙</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1 class="fade-up">Welcome to <span>Dev Test Lab</span></h1>
+      <a href="#" class="btn hero-btn fade-up delay" id="getStartedBtn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- QUIZ CONTAINER -->
+  <section class="quiz-container" id="quizContainer" style="display: none;">
+    <!-- Quiz content injected by JS -->
+  </section>
+
+  <script src="./app.js"></script>
+</body>
+</html>
