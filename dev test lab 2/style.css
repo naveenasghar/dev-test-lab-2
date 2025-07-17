@@ -388,3 +388,92 @@ body.dark-mode .quiz-container h2 {
   font-size: 1.1rem;
 }
 
+/* new box */
+.code-input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: monospace;
+  font-size: 14px;
+  resize: vertical;
+  background: #fefefe;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+body.dark-mode .code-input {
+  background: #2c2c40;
+  color: white;
+  border: 1px solid #555;
+}
+
+.question-block {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.result-box {
+  background: #eaf7ff;
+  border-left: 5px solid #00b4d8;
+  padding: 15px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+body.dark-mode .result-box {
+  background: #1c2b3a;
+  border-color: #00ffc8;
+  color: #fff;
+}
+/* show function */
+/* .result-chart-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.chart {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  animation: zoomIn 0.6s ease-in-out;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.circle-chart {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke: #00b4d8;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.percentage {
+  fill: #00b4d8;
+  font-size: 0.5em;
+  text-anchor: middle;
+  dominant-baseline: central;
+  font-weight: bold;
+}
+
+.feedback-text {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+} */

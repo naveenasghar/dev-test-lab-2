@@ -121,3 +121,84 @@ function showQuestions(lang, level) {
     quizContainer.innerHTML += `<div class="question">${idx + 1}. ${q}</div>`;
   });
 }
+// new box
+function showQuestions(lang, level) {
+  const qs = questions[lang][level];
+  quizContainer.innerHTML = `<h2>${lang} - Level ${level}</h2>`;
+
+  qs.forEach((q, idx) => {
+    quizContainer.innerHTML += `
+      <div class="question-block">
+        <div class="question">${idx + 1}. ${q}</div>
+        <textarea class="code-input" rows="6" placeholder="Write your code here..."></textarea>
+      </div>
+    `;
+  });
+
+  quizContainer.innerHTML += `<button id="submitBtn">Submit</button>`;
+
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    const codeInputs = document.querySelectorAll('.code-input');
+    let score = 0;
+
+    codeInputs.forEach((input, idx) => {
+      const userCode = input.value.trim().toLowerCase();
+      const keyword = qs[idx].split(' ')[0].toLowerCase(); // crude check
+
+      if (userCode.includes(keyword)) score++;
+    });
+
+    const total = qs.length;
+    const percent = Math.round((score / total) * 100);
+
+    quizContainer.innerHTML += `
+      <div class="result-box">
+        <h3>Performance</h3>
+        <p>Score: ${score} / ${total}</p>
+        <p>Accuracy: ${percent}%</p>
+      </div>
+    `;
+  });
+}
+// show function 
+// function showResult(percent) {
+//   const quizContainer = document.getElementById('quizContainer');
+
+//   quizContainer.innerHTML += `
+//     <div class="result-chart-container">
+//       <div class="chart">
+//         <svg class="circle-chart" viewBox="0 0 36 36">
+//           <path class="circle-bg"
+//                 d="M18 2.0845
+//                    a 15.9155 15.9155 0 0 1 0 31.831
+//                    a 15.9155 15.9155 0 0 1 0 -31.831"/>
+//           <path class="circle"
+//                 id="progressPath"
+//                 d="M18 2.0845
+//                    a 15.9155 15.9155 0 0 1 0 31.831
+//                    a 15.9155 15.9155 0 0 1 0 -31.831"
+//                 stroke-dasharray="0, 100" />
+//           <text x="18" y="20.35" class="percentage" id="percentText">0%</text>
+//         </svg>
+//       </div>
+//       <div class="feedback-text">
+//         ${percent >= 80 ? '🔥 Excellent!' : percent >= 50 ? '👍 Good Job!' : '💡 Keep Practicing!'}
+//       </div>
+//     </div>
+//   `;
+
+//   // Animate number count and stroke fill
+//   let current = 0;
+//   const text = document.getElementById('percentText');
+//   const path = document.getElementById('progressPath');
+
+//   const interval = setInterval(() => {
+//     if (current >= percent) {
+//       clearInterval(interval);
+//     } else {
+//       current++;
+//       text.textContent = current + '%';
+//       path.setAttribute('stroke-dasharray', `${current}, 100`);
+//     }
+//   }, 15);
+// }
